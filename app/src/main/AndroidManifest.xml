@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IndieArtistsApp">
         <activity
+            android:theme="@style/Theme.IndieArtistsApp.MySplash"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

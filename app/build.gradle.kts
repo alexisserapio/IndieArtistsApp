@@ -47,6 +47,9 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    //Splash screen
+    implementation(libs.androidx.core.splashscreen)
+
     //Para retrofit y Gson
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
