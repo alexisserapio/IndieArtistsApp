@@ -44,9 +44,15 @@ class MainActivity : AppCompatActivity() {
 
         repository = (application as IndieArtistApplication).repository
 
+        callAPI()
+    }
+
+    private fun callAPI(){
+
         lifecycleScope.launch {
             try {
 
+                binding.pbLoading.visibility = View.VISIBLE
                 binding.ivNoWifi.visibility = View.INVISIBLE
                 binding.tvNoConnection.visibility = View.INVISIBLE
                 binding.buttonRetryConn.visibility = View.INVISIBLE
@@ -61,14 +67,23 @@ class MainActivity : AppCompatActivity() {
 
                     }
                 }
+
             }catch (e: IOException ){
+
                 e.printStackTrace()
                 binding.pbLoading.visibility = View.INVISIBLE
                 binding.ivNoWifi.visibility = View.VISIBLE
                 binding.tvNoConnection.visibility = View.VISIBLE
                 binding.buttonRetryConn.visibility = View.VISIBLE
+
+                binding.buttonRetryConn.setOnClickListener {
+                    callAPI()
+                }
+
             }finally {
+
                 binding.pbLoading.visibility = View.INVISIBLE
+
             }
         }
     }
