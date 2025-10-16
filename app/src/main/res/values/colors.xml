@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#16171D</color>
+    <color name="indie_pink">#E14483</color>
+    <color name="indie_blue">#01DFCF</color>
+    <color name="indie_purple">#9B70B5</color>
 </resources>

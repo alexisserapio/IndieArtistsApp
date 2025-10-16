@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">IndieArtistsApp</string>
+    <string name="retry_button">Volver a intentar</string>
+    <string name="retry_conn_text">Oh no! No hay Conexión a Internet :(</string>
 </resources>

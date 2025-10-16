@@ -2,6 +2,7 @@ package com.example.indieartistsapp.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -16,6 +17,7 @@ import com.example.indieartistsapp.databinding.ActivityMainBinding
 import com.example.indieartistsapp.ui.adapters.ArtistAdapter
 import com.example.indieartistsapp.utils.Constants
 import kotlinx.coroutines.launch
+import okio.IOException
 import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
@@ -44,6 +46,11 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
+
+                binding.ivNoWifi.visibility = View.INVISIBLE
+                binding.tvNoConnection.visibility = View.INVISIBLE
+                binding.buttonRetryConn.visibility = View.INVISIBLE
+
                 val artists = repository.getAllArtists()
                 Log.d(Constants.LOGTAG, "Respuesta recibida: ${artists.toString()}")
 
@@ -54,8 +61,14 @@ class MainActivity : AppCompatActivity() {
 
                     }
                 }
-            }catch (e: Exception){
+            }catch (e: IOException ){
                 e.printStackTrace()
+                binding.pbLoading.visibility = View.INVISIBLE
+                binding.ivNoWifi.visibility = View.VISIBLE
+                binding.tvNoConnection.visibility = View.VISIBLE
+                binding.buttonRetryConn.visibility = View.VISIBLE
+            }finally {
+                binding.pbLoading.visibility = View.INVISIBLE
             }
         }
     }
