@@ -1,5 +1,6 @@
 package com.example.indieartistsapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -64,6 +65,12 @@ class MainActivity : AppCompatActivity() {
                     layoutManager = LinearLayoutManager(this@MainActivity)
                     adapter = ArtistAdapter(artists){ selectedArtist ->
 
+                        selectedArtist.id?.let { id ->
+
+                            val segueToDetailsActivity = Intent(this@MainActivity, ArtistDetailActivity::class.java)
+                            startActivity(segueToDetailsActivity)
+
+                        }
 
                     }
                 }

@@ -8,6 +8,18 @@
     android:background="@drawable/main_background"
     tools:context=".ui.MainActivity">
 
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="@+id/ivNoWifi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
     <ImageView
         android:id="@+id/ivNoWifi"
         android:layout_width="100dp"
@@ -44,11 +56,14 @@
     />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingTop="20dp"
         android:id="@+id/rvArtists"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogo">
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button

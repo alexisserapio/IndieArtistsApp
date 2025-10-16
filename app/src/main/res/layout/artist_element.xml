@@ -40,16 +40,24 @@
 
     </FrameLayout>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guideline7"
+        app:layout_constraintBottom_toBottomOf="@id/guideline6"
+        app:layout_constraintStart_toStartOf="@id/guideline8"
+        app:layout_constraintEnd_toStartOf="@id/tvTitle"
+        android:src="@drawable/ic_artist"/>
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
         android:paddingTop="8dp"
-        android:textColor="#CBD5ED"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +70,7 @@
         android:id="@+id/tvDeveloper"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
@@ -78,7 +86,7 @@
         android:id="@+id/tvReleased"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
@@ -95,7 +103,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
         android:text="ESRB Rating: E-Everyone"
