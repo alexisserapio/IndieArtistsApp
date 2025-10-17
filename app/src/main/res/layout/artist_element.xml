@@ -13,7 +13,8 @@
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/flImageContainer"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <FrameLayout
         android:id="@+id/flImageContainer"
@@ -41,19 +42,21 @@
     </FrameLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/guideline7"
+        android:id="@+id/ivArtistIcon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_artist"
         app:layout_constraintBottom_toBottomOf="@id/guideline6"
-        app:layout_constraintStart_toStartOf="@id/guideline8"
         app:layout_constraintEnd_toStartOf="@id/tvTitle"
-        android:src="@drawable/ic_artist"/>
+        app:layout_constraintStart_toEndOf="@id/guideline8"
+        app:layout_constraintTop_toTopOf="@id/guideline7"
+        app:layout_constraintVertical_bias="0.7" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="5dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
         android:paddingTop="8dp"
@@ -61,58 +64,65 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline8"
+        app:layout_constraintStart_toEndOf="@+id/ivArtistIcon"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        tools:text="Title" />
+        tools:text="ArtisticName" />
 
-
+    <ImageView
+        android:id="@+id/ivFamousSongIcon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        app:layout_constraintStart_toEndOf="@id/guideline8"
+        app:layout_constraintEnd_toStartOf="@id/tvFamousSong"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
+        app:layout_constraintTop_toTopOf="@id/guideline6"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/ic_note"
+        app:layout_constraintVertical_bias="0.7"
+    />
     <TextView
-        android:id="@+id/tvDeveloper"
+        android:id="@+id/tvFamousSong"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
-        android:text="Nintendo"
+        android:text="Famous Song"
         android:textColor="#3FE0DD"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toEndOf="@+id/ivFamousSongIcon"
         app:layout_constraintTop_toTopOf="@id/guideline6" />
 
-    <TextView
-        android:id="@+id/tvReleased"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:includeFontPadding="false"
-        android:text="Released: 2020"
-        android:textColor="#4A5B82"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
+    <ImageView
+        android:id="@+id/ivSongAlbumIcon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        app:layout_constraintStart_toEndOf="@id/guideline8"
+        app:layout_constraintEnd_toStartOf="@id/tvSongAlbum"
+        app:layout_constraintTop_toTopOf="@id/guideline5"
         app:layout_constraintBottom_toBottomOf="@id/guideline4"
-        app:layout_constraintTop_toTopOf="@id/guideline5" />
+        app:layout_constraintVertical_bias="0.8"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/ic_album" />
 
     <TextView
-        android:id="@+id/tvRating"
+        android:id="@+id/tvSongAlbum"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
-        android:layout_marginStart="15dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
-        android:text="ESRB Rating: E-Everyone"
-        android:textColor="#F5DC53"
+        android:text="Famous Song Album"
+        android:textColor="@color/indie_pink"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@id/guideline4"
-        app:layout_constraintBottom_toBottomOf="@id/guideline3"/>
+        app:layout_constraintStart_toEndOf="@+id/ivSongAlbumIcon"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4"
+        app:layout_constraintTop_toTopOf="@id/guideline5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -122,39 +132,32 @@
         app:layout_constraintGuide_begin="145dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="105dp" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="90dp" />
+        app:layout_constraintGuide_begin="110dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="70dp" />
+        app:layout_constraintGuide_begin="88dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="50dp" />
+        app:layout_constraintGuide_begin="62dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="27dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"

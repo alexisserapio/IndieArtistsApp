@@ -24,6 +24,8 @@ class ArtistViewHolder(
         currentItem = artist
 
         binding.tvTitle.text = artist.artistic_name
+        binding.tvFamousSong.text = artist.famous_song
+        binding.tvSongAlbum.text = artist.famous_song_album
 
         Glide.with(binding.root.context)
             .load(artist.image_url)
