@@ -17,6 +17,7 @@ import com.example.indieartistsapp.data.AppRepository
 import com.example.indieartistsapp.databinding.ActivityMainBinding
 import com.example.indieartistsapp.ui.adapters.ArtistAdapter
 import com.example.indieartistsapp.utils.Constants
+import com.example.indieartistsapp.utils.Constants.LOGTAG
 import kotlinx.coroutines.launch
 import okio.IOException
 import retrofit2.Retrofit
@@ -68,6 +69,9 @@ class MainActivity : AppCompatActivity() {
                         selectedArtist.id?.let { id ->
 
                             val segueToDetailsActivity = Intent(this@MainActivity, ArtistDetailActivity::class.java)
+                            Log.d(LOGTAG, "el id mandado es: $id")
+                            segueToDetailsActivity.putExtra("id", id)
+
                             startActivity(segueToDetailsActivity)
 
                         }
