@@ -53,11 +53,13 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
+                binding.apply {
+                    pbLoading.visibility = View.VISIBLE
+                    ivNoWifi.visibility = View.INVISIBLE
+                    tvNoConnection.visibility = View.INVISIBLE
+                    buttonRetryConn.visibility = View.INVISIBLE
+                }
 
-                binding.pbLoading.visibility = View.VISIBLE
-                binding.ivNoWifi.visibility = View.INVISIBLE
-                binding.tvNoConnection.visibility = View.INVISIBLE
-                binding.buttonRetryConn.visibility = View.INVISIBLE
 
                 val artists = repository.getAllArtists()
                 Log.d(Constants.LOGTAG, "Respuesta recibida: ${artists.toString()}")
@@ -82,10 +84,12 @@ class MainActivity : AppCompatActivity() {
             }catch (e: IOException ){
 
                 e.printStackTrace()
-                binding.pbLoading.visibility = View.INVISIBLE
-                binding.ivNoWifi.visibility = View.VISIBLE
-                binding.tvNoConnection.visibility = View.VISIBLE
-                binding.buttonRetryConn.visibility = View.VISIBLE
+                binding.apply {
+                    pbLoading.visibility = View.INVISIBLE
+                    ivNoWifi.visibility = View.VISIBLE
+                    tvNoConnection.visibility = View.VISIBLE
+                    buttonRetryConn.visibility = View.VISIBLE
+                }
 
                 binding.buttonRetryConn.setOnClickListener {
                     callAPI()
