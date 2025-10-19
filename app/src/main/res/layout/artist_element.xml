@@ -88,13 +88,13 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
-        android:text="Famous Song"
         android:textColor="#3FE0DD"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivFamousSongIcon"
-        app:layout_constraintTop_toTopOf="@id/guideline6" />
+        app:layout_constraintTop_toTopOf="@id/guideline6"
+        tools:text="Famous Song"/>
 
     <ImageView
         android:id="@+id/ivSongAlbumIcon"
@@ -116,7 +116,7 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
-        android:text="Famous Song Album"
+        tools:text="Famous Song Album"
         android:textColor="@color/indie_pink"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
