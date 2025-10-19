@@ -20,6 +20,7 @@ import com.example.indieartistsapp.utils.Constants
 import com.example.indieartistsapp.utils.Constants.LOGTAG
 import kotlinx.coroutines.launch
 import okio.IOException
+import retrofit2.HttpException
 import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
@@ -95,6 +96,19 @@ class MainActivity : AppCompatActivity() {
                     callAPI()
                 }
 
+            }catch (e: HttpException){
+                e.printStackTrace()
+                binding.apply {
+                    tvNoConnection.text = getString(R.string.server_error_text)
+                    pbLoading.visibility = View.INVISIBLE
+                    ivNoWifi.visibility = View.VISIBLE
+                    tvNoConnection.visibility = View.VISIBLE
+                    buttonRetryConn.visibility = View.VISIBLE
+
+                    binding.buttonRetryConn.setOnClickListener {
+                        callAPI()
+                    }
+                }
             }finally {
 
                 binding.pbLoading.visibility = View.INVISIBLE

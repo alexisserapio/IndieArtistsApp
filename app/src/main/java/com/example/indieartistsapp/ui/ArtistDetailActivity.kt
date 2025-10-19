@@ -16,6 +16,7 @@ import com.example.indieartistsapp.databinding.ActivityArtistDetailBinding
 import com.example.indieartistsapp.utils.Constants.LOGTAG
 import kotlinx.coroutines.launch
 import okio.IOException
+import retrofit2.HttpException
 import retrofit2.Retrofit
 
 private const val GAME_ID = "game_id"
@@ -103,6 +104,28 @@ class ArtistDetailActivity : AppCompatActivity() {
                     callAPIDetails(gameId.toString())
                 }
 
+            }catch (e: HttpException){
+                e.printStackTrace()
+                binding.apply {
+                    tvNoConnection.text = getString(R.string.server_error_text)
+                    pbLoading.visibility = View.INVISIBLE
+                    ivNoWifi.visibility = View.VISIBLE
+                    tvNoConnection.visibility = View.VISIBLE
+                    buttonRetryConn.visibility = View.VISIBLE
+                    //
+                    detailsContainer.visibility = View.INVISIBLE
+                    iconBday.visibility = View.INVISIBLE
+                    /*tvDetailName.visibility = View.INVISIBLE
+                    tvRealName.visibility = View.INVISIBLE
+                    tvBday.visibility = View.INVISIBLE
+                    tvFamousSong.visibility = View.INVISIBLE
+                    tvFamousSongAlbum.visibility = View.INVISIBLE
+                    tvLatestAlbum.visibility = View.INVISIBLE*/
+                }
+
+                binding.buttonRetryConn.setOnClickListener {
+                    callAPIDetails(gameId.toString())
+                }
             }finally {
 
                 binding.pbLoading.visibility = View.INVISIBLE
